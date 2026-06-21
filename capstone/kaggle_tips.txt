@@ -1,0 +1,10 @@
+Tip 1: Cross-Validation. Always set up a robust local cross-validation strategy (like Stratified K-Fold for classification or GroupKFold for grouped data) that mimics the competition metric before submitting.
+Tip 2: Data Leakage. Look out for data leakage, such as computing statistics over the entire dataset instead of training folds, or leaking future data in time-series splits.
+Tip 3: Feature Engineering. Creating domain-specific features (e.g. ratios, aggregations, target encoding) is often more valuable than model tuning.
+Tip 4: Ensembling. Blend predictions from diverse architectures (LightGBM, XGBoost, Neural Nets) using rank averaging to stabilize and improve leaderboard position.
+Tip 5: Baseline Pipeline. Build a simple end-to-end pipeline first to verify ingestion, submission format, and scoring before introducing complex models.
+Tip 6: Hyperparameter Tuning. Focus tuning on learning rate, number of estimators, tree depth, and regularization factors first using Optuna.
+Tip 7: Post-Processing. Apply adjustments (like threshold optimization for F1-score or prediction clipping) to fine-tune results for the metric.
+Tip 8: Memory Management. Use gc.collect() and convert data types (e.g., float64 to float32) to avoid running out of RAM in Kaggle notebooks.
+Tip 9: Target Transformation. For skewed targets (e.g. prices), apply np.log1p before training and np.expm1 for predictions to improve model convergence.
+Tip 10: Seed Averaging. Train models with multiple random seeds and average their predictions to reduce variance on the private leaderboard.
